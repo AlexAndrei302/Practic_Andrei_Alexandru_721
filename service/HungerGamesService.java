@@ -40,4 +40,10 @@ public class HungerGamesService {
                 .filter(t -> t.getDistrikt() == district && t.getStatus() == status)
                 .collect(Collectors.toList());
     }
+    public List<Tribut> getSortedTributes() {
+        return tributes.stream()
+                .sorted(Comparator.comparingInt(Tribut::getSkillLevel).reversed()
+                        .thenComparing(Tribut::getName))
+                .collect(Collectors.toList());
+    }
 }

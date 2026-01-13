@@ -1,4 +1,4 @@
-// src/controller/HungerGamesController.java
+
 package controller;
 
 import model.Tribut;
@@ -16,7 +16,7 @@ public class HungerGamesController {
 
     public void run() {
         try {
-            // Task 1: Load and Print Stats
+
             service.loadData("src/resources/tributes.json", "src/resources/events.json", "src/resources/gifts.json");
 
             System.out.println("Tributes loaded: " + service.getAllTributes().size());
@@ -35,5 +35,8 @@ public class HungerGamesController {
     }
 
     private void handleDistrictFilter() {
+        System.out.println("\nSorted Tributes:");
+        List<Tribut> sorted = service.getSortedTributes();
+        sorted.forEach(System.out::println);
     }
 }
