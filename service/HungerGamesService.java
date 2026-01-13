@@ -46,4 +46,13 @@ public class HungerGamesService {
                         .thenComparing(Tribut::getName))
                 .collect(Collectors.toList());
     }
+    public void exportSortedTributes(String filename) throws IOException {
+        List<Tribut> sorted = getSortedTributes();
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+            for (Tribut t : sorted) {
+                writer.write(t.toString());
+                writer.newLine();
+            }
+        }
+    }
 }

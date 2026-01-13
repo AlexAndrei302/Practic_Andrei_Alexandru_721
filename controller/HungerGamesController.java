@@ -1,4 +1,3 @@
-
 package controller;
 
 import model.Tribut;
@@ -38,5 +37,12 @@ public class HungerGamesController {
         System.out.println("\nSorted Tributes:");
         List<Tribut> sorted = service.getSortedTributes();
         sorted.forEach(System.out::println);
+
+        try {
+            service.exportSortedTributes("tributes_sorted.txt");
+            System.out.println("\nTask 4: tributes_sorted.txt created.");
+        } catch (IOException e) {
+            System.err.println("Failed to export sorted tributes: " + e.getMessage());
+        }
     }
 }
