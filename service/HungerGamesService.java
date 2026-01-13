@@ -26,5 +26,18 @@ public class HungerGamesService {
         return tributes;
     }
 
-    public int getEventsCount() { return events.size(); }
-    public int getGiftsCount() { return gifts.size(); } }
+    public int getEventsCount() {
+        return events.size();
+    }
+
+    public int getGiftsCount() {
+        return gifts.size();
+    }
+
+
+    public List<Tribut> filterTributes(int district, Status status) {
+        return tributes.stream()
+                .filter(t -> t.getDistrikt() == district && t.getStatus() == status)
+                .collect(Collectors.toList());
+    }
+}

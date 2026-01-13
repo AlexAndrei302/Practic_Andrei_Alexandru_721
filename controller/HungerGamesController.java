@@ -30,5 +30,10 @@ public class HungerGamesController {
             System.err.println("Failed to load data: " + e.getMessage());
             e.printStackTrace();
         }
+
+        handleDistrictFilter();
+    }
+
+    private void handleDistrictFilter() {
     }
 }
